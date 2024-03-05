@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Storefront.Views.StoreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Storefront.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Click="RefreshBtn_OnClick" Name="RefreshBtn" Grid.Column="0" Background="#FF60BAE0">Refresh Data</Button>
+            <Button Click="CreateSaveBtn_OnClick" Name="CreateSaveBtn" Grid.Column="1">Create/Save Store</Button>
+            <Button Click="RemoveStoreBtn_OnClick" Name="RemoveStoreBtn" Grid.Column="2">Remove Store</Button>
+            <Button Click="ViewBtn_OnClick" Name="ViewBtn" Grid.Column="3">View Store</Button>
+        </Grid>
+        <Button Click="EditStockBtn_OnClick" Name="EditStockBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Panel.ZIndex="1" Margin="0,2,250,0">Edit Stock Balance</Button>
+        <Button Click="NewStockBtn_OnClick" Name="NewStockBtn" Grid.Row="2" Grid.Column="2" Panel.ZIndex="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,2,10,0">New Stock Balance</Button>
+        <Button Click="DeleteStockBtn_OnClick" Grid.Row="2" Name="DeleteStockBtn" Grid.Column="2" Panel.ZIndex="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,2,150,0">Delete Stock</Button>
+        <ListView SelectionChanged="StoreList_OnSelectionChanged" Name="StoreList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding StreetAddress}" Header="Street Address"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding PostalCode}" Header="Postal Code"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding City}" Header="City"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Employees.Count}" Header="Employee Count"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="EmployeeList" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding JobTitle}" Header="Job Title"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding ContactEmail}" Header="E-Mail"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Phone}" Header="Phone"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="StockList" Grid.Row="2" Grid.Column="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Isbnid}" Header="ISBN"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding NumberOfBooks}" Header="Stock Amount"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

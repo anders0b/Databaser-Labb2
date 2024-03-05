@@ -1,0 +1,56 @@
+﻿<Window x:Class="Storefront.Views.AuthorCreateSave"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Storefront.Views"
+        mc:Ignorable="d"
+        Title="Create/Save Authors" Height="450" Width="600" MinHeight="450" MinWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label FontWeight="Bold">First Name</Label>
+        <Label HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Top" FontWeight="Bold">ID:</Label>
+        <TextBlock Name="AuthorID" Text="" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0"></TextBlock>
+        <Label Grid.Row="1" FontWeight="Bold">Last Name</Label>
+        <Label Grid.Row="2" FontWeight="Bold">Date of Birth</Label>
+        <Label Grid.Row="3" FontWeight="Bold">Titles</Label>
+        <TextBox Name="FirstNameBox" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Name="LastNameBox" Grid.Row="1" Grid.Column="1"></TextBox>
+        <DatePicker Name="DateBox" Grid.Row="2" Grid.Column="1"></DatePicker>
+        <ListView Name="TitleList" Grid.Column="1" Grid.Row="4">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Isbn}" Header="ISBN"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="NewTitleList" Grid.Column="0" Grid.Row="4">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Isbn}" Header="ISBN"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Height="20" Click="AddTitleBtn_OnClick" Name="AddTitleBtn" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0">Add Title</Button>
+        <Button Height="20" Click="RemoveTitleBtn_OnClick" Name="RemoveTitleBtn" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,10,0">Remove Title</Button>
+        <Button Click="SaveBtn_OnClick" Name="SaveBtn" Grid.Column="0" Grid.Row="5">Save/Create</Button>
+        <Button Click="CancelBtn_OnClick" Name="CancelBtn" Grid.Column="1" Grid.Row="5">Cancel</Button>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Storefront.Views.ReadMe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Storefront.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/bg-books.jpg"/>
+        </Grid.Background>
+        <TextBlock Margin="50,50,50,50" Grid.RowSpan="2" FontSize="20" FontWeight="Bold" FontFamily="Segoe UI Semibold"><Run Text="&quot;"/><Run Text="Böckers"/><Run Language="sv-se" Text=" DB"/><Run Text="&quot; av Anders Öberg .NET23"/></TextBlock>
+        <TextBlock Grid.Row="0" Margin="50,100,50,50" Grid.RowSpan="2" FontSize="18" FontFamily="Segoe UI Semilight"><Run Text="Lägg till böcker och koppla författare i Title-fliken. För att ta bort en bok, säkerställ att den inte "/><LineBreak/><Run Text="finns i lager först i Store-vyn"/><LineBreak/><Run/><LineBreak/><Run Text="Skapa nya författare i vyn Authors, "/><Run Text="här går det också koppla"/><Run Text=" författare med böcker"/><Run Text=" om man vill"/><Run Text=". "/><LineBreak/><Run/><LineBreak/><Run Text="I tabben S"/><Run Text="tores"/><Run Text=" går det skapa nya butiker."/><Run Text=" "/><Run Text="För att justera lagersaldo, markera en rad i den "/><LineBreak/><Run Text="nedersta kolumnen till höger, följt av Edit Stock. Det går även bra att lägga till "/><LineBreak/><Run Text="nytt lager"/><Run Text=" "/><Run Text="via Add Stock"/><Run Text=", samt ta bort."/><LineBreak/><Run/><LineBreak/><Run Text="Data uppdateras per automatik i fliken vid förändring, men det "/><LineBreak/><Run Text="kräver en manuell refresh vid"/><Run Text=" "/><Run Text="byte av "/><Run Text="flik"/><Run Text="."/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+    </Grid>
+</UserControl>

@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Storefront.Views.AuthorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Storefront.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Click="RefreshBtn_OnClick" Name="RefreshBtn" Grid.Column="0" Background="#FF60BAE0">Refresh Data</Button>
+            <Button Click="CreateSaveAuthorBtn_OnClick" Name="CreateSaveAuthorBtn" Grid.Column="1">Create/Save Author</Button>
+            <Button Click="RemoveAuthorBtn_OnClick" Name="RemoveAuthorBtn" Grid.Column="2">Remove Author</Button>
+            <Button Click="EditAuthorBtn_OnClick" Name="EditAuthorBtn" Grid.Column="3">View Author</Button>
+        </Grid>
+        <ListView SelectionChanged="AuthorList_OnSelectionChanged" Name="AuthorList" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="First Name"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding LastName}" Header="Last Name"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DateOfBirth}" Header="Date of Birth"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Isbns.Count}" Header="Number of Titles"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="AuthorTitleList" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Isbn}" Header="ISBN"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Pages}" Header="Pages"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding YearOfPublication}" Header="Year of Publication"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
